@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="axon.browser.js"></script>
+    <script src="axon.js"></script>
 </head>
 <body>
     <script>
@@ -13,7 +13,7 @@
         axon.d = a => a + 1;
         axon.e = (b, d) => b + d;
 
-        axon.log = e => console.warn(e);
+        axon.log = e => console.warn('Answer of life is', e);
 
         axon.a = 5;
 
