@@ -1,37 +1,63 @@
-## Welcome to GitHub Pages
+# axon.js
 
-You can use the [editor on GitHub](https://github.com/caracal7/axon.js/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Lightweight javascript reactive programming library
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Browser
 
-### Markdown
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="axon.js"></script>
+</head>
+<body>
+    <script>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        const axon = new Axon();
 
-```markdown
-Syntax highlighted code block
+        axon.b = a => a + 1;
+        axon.c = b => b + 1;
+        axon.d = a => a + 1;
+        axon.e = (b, d) => b + d;
 
-# Header 1
-## Header 2
-### Header 3
+        axon.log = e => console.warn('Answer of life is', e);
 
-- Bulleted
-- List
+        axon.a = 5;
 
-1. Numbered
-2. List
+    </script>
+</body>
+</html>
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Node.js
 
-### Jekyll Themes
+### Installation
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/caracal7/axon.js/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+npm i @caracal7/axon.js
+```
 
-### Support or Contact
+### Usage
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+```
+const Axon = require('@caracal7/axon.js');
+
+const axon = new Axon();
+
+axon.b = a => a + 1;
+axon.c = b => b + 1;
+axon.d = a => a + 1;
+axon.e = (b, d) => b + d;
+
+axon.log = e => console.warn('Answer of life is', e);
+
+axon.a = 5;
+```
+
+## Credits
+
+Library was inspired by [`topologica`](https://github.com/datavis-tech/topologica).
+
+<a href="http://js.org" target="_blank" title="JS.ORG | JavaScript Community">
+<img src="http://logo.js.org/dark_horz.png" width="102" alt="JS.ORG Logo"/></a>
