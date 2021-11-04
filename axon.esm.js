@@ -165,8 +165,4 @@ const Axon = function() {
     return new Proxy(run, { get, set, apply, deleteProperty });
 };
 
-if(typeof window !== 'undefined') {
-    window.Axon = Axon;
-} else {
-    module.exports = Axon;
-}
+export default Axon;
