@@ -1,7 +1,6 @@
 /******************************************************************************/
 // The MIT Licence (MIT)
 // Copyright (C) 2021 Dmitry Vasilev
-// This file is part of iris.js
 /******************************************************************************/
 
 const Axon = function() {
@@ -57,7 +56,7 @@ const Axon = function() {
     })
 
     const setValue = (property, value) => {
-        if (!state.hasOwnProperty(property) || state[property] !== value) {
+        if (!state.hasOwnProperty(property) || typeof value === 'object' || state[property] !== value) {
             state[property] = value;
             clearInputEdges(property);
 
@@ -68,7 +67,7 @@ const Axon = function() {
             findEdges(property)
 
             depthFirstSearch(property).reverse().forEach(invoke);
-        };
+        }
     }
 
     const allDefined = dependencies => {
@@ -149,8 +148,8 @@ const Axon = function() {
                 edges,
                 args,
             },
-            has: property => !!state[property],
-            isFunction: property => !!functions[property],
+            has: property => state.hasOwnProperty(property),
+            isFunction: property => functions.hasOwnProperty(property),
             patch: patch => Object.keys(patch).forEach(property => set(null, property, patch[property])),
             destroy: () => beforeDestroy && beforeDestroy(),
             afterSet: fn => afterSet = fn,
@@ -159,6 +158,7 @@ const Axon = function() {
             fnFromString: str => new Function('return '+str)(),
             silentSet: (property, value) => set(null, property, value),
             silentDelete: (property, value) => deleteProperty(null, property),
+            setAsValue: (property, value) => setValue(property, value),
         };
     }
 
