@@ -4,7 +4,7 @@ Lightweight javascript reactive programming library
 
 ## Browser
 
-```javascript
+```html
 <!DOCTYPE html>
 <html>
 <head>
