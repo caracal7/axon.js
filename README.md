@@ -4,7 +4,7 @@ Lightweight javascript reactive programming library
 
 ## Browser
 
-```
+```javascript
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,7 @@ npm i @caracal7/axon.js
 
 ### Usage
 
-```
+```javascript
 const Axon = require('@caracal7/axon.js');
 
 const axon = new Axon();
